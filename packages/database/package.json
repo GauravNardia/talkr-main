@@ -15,5 +15,8 @@
   },
   "exports": {
     ".": "./src/index.ts"
-  }
+  },
+  "pkg": {
+  "assets": ["node_modules/.prisma/client/*.node"]
+}
 }
