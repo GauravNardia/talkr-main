@@ -10,8 +10,12 @@ export default async function Home(){
 
   return (
     <div>
-          <div className={styles.page}>
+      <div className={styles.page}>
       {user?.email ?? "No user added yet"}
+    </div>
+
+    <div>
+      Hello form gaurav nardia
     </div>
     </div>
   )
