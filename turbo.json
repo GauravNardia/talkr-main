@@ -29,5 +29,7 @@
       "persistent": true
     }
     
-  }
+  },
+  "globalDependencies": ["**/.env"],
+  "globalEnv": ["DATABASE_URL"]
 }
