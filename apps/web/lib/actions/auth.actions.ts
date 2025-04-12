@@ -1,7 +1,7 @@
 "use server";
 
-import { onboardingSchema } from "@repo/shared";
 import { prisma } from "@repo/db";
+import { onboardingSchema } from "@repo/shared";
 import { z } from "zod";
 
 export async function OnboardUser(

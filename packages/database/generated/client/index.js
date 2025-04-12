@@ -165,7 +165,9 @@ const config = {
         "native": true
       }
     ],
-    "previewFeatures": [],
+    "previewFeatures": [
+      "omitApi"
+    ],
     "sourceFilePath": "C:\\Users\\gaura.GAURAV\\Desktop\\turbo\\packages\\database\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
@@ -189,8 +191,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"./../generated/client\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id           String        @id @default(uuid())\n  userId       String?       @unique\n  username     String\n  email        String        @unique\n  native       String\n  target       String\n  onboarded    Boolean       @default(false)\n  subscription Subscription?\n}\n\nmodel Subscription {\n  id        String             @id @default(cuid())\n  userId    String             @unique\n  plan      PlanType           @default(FREE)\n  status    SubscriptionStatus @default(ACTIVE)\n  startDate DateTime           @default(now())\n  endDate   DateTime?\n  createdAt DateTime           @default(now())\n  updatedAt DateTime           @updatedAt\n  user      User               @relation(fields: [userId], references: [userId])\n}\n\nenum PlanType {\n  FREE\n  PLUS\n  PRO\n}\n\nenum SubscriptionStatus {\n  ACTIVE\n  CANCELLED\n  EXPIRED\n}\n",
-  "inlineSchemaHash": "7af5f1219828770832dff3525afc7d602afeafcd1180c6517f2fac203f1e37e9",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider        = \"prisma-client-js\"\n  output          = \"./../generated/client\"\n  previewFeatures = [\"omitApi\"]\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel User {\n  id           String        @id @default(uuid())\n  userId       String?       @unique\n  username     String\n  email        String        @unique\n  native       String\n  target       String\n  onboarded    Boolean       @default(false)\n  subscription Subscription?\n}\n\nmodel Subscription {\n  id        String             @id @default(cuid())\n  userId    String             @unique\n  plan      PlanType           @default(FREE)\n  status    SubscriptionStatus @default(ACTIVE)\n  startDate DateTime           @default(now())\n  endDate   DateTime?\n  createdAt DateTime           @default(now())\n  updatedAt DateTime           @updatedAt\n  user      User               @relation(fields: [userId], references: [userId])\n}\n\nenum PlanType {\n  FREE\n  PLUS\n  PRO\n}\n\nenum SubscriptionStatus {\n  ACTIVE\n  CANCELLED\n  EXPIRED\n}\n",
+  "inlineSchemaHash": "65e4d263c5ea7d68d0de7da0c7171af0baeced2e45678abdb1542751e4f52fc2",
   "copyEngine": true
 }
 
